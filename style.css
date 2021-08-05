@@ -1,0 +1,14 @@
+#mapid {
+	height: 250px;
+	width: 500px;
+	margin: auto;
+	border: 2px solid black;
+}
+
+.popup {
+	color: red;
+}
+
+.mycoords {
+	height: 50px;
+}
