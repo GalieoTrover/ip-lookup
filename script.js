@@ -1,18 +1,16 @@
-// document.getElementsByClassName('mycoords').textContent = 'heelo';
-
 let btn = document.querySelector('.lookup');
 let map = document.querySelector('#mapid');
 let replaceThese = Array.prototype.slice.call(
 	document.querySelectorAll('.replace')
 );
 let instruct = document.querySelector('.instruct');
-
-// console.log(data);
-// data.forEach((item) => console.log(item.textContent));
+let loading = document.querySelector('.loading');
 
 btn.addEventListener('click', getData);
 
 function getData() {
+	loading.classList.remove('d-none');
+
 	// IP & Geolocation
 	const getIp = async function () {
 		const res = await fetch('https://api.ipify.org/?format=json');
@@ -43,6 +41,7 @@ function getData() {
 
 	map.classList.remove('d-none');
 	instruct.classList.add('d-none');
+	btn.classList.add('d-none');
 
 	// Map & Marker
 
@@ -59,6 +58,8 @@ function getData() {
 				closeOnClick: false,
 			})
 			.openPopup();
+
+		loading.classList.add('d-none');
 
 		// Setting Tileset
 		L.tileLayer(

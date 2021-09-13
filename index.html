@@ -37,7 +37,6 @@
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
 		/>
 
-		<!-- <link rel="stylesheet" href="style.css" /> -->
 		<title>IP LookUp | Valay Maskey</title>
 	</head>
 	<body>
@@ -65,7 +64,6 @@
 							>
 								About
 							</span>
-							<!-- </li> -->
 							<div class="modal fade" tabindex="-1" id="about">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -129,7 +127,10 @@
 												>Q. Why doesn't the 'Lookup my IP' button do
 												anything?</span
 											>
-											<p>A. You might have to disable your adblocker.</p>
+											<p>
+												A. One solution is to disable your adblocker, another is
+												to wait a few seconds for fetching of the data.
+											</p>
 											<span class="fw-bold">Q. Who made this?</span>
 											<p>
 												A.
@@ -174,32 +175,6 @@
 				<button class="btn btn-secondary lookup">Lookup my IP</button>
 			</div>
 
-			<!-- list-group list-group-horizontal-lg -->
-			<!-- <ul
-				class="container-lg rounded-5 justify-content-center text-center mb-4"
-			>
-				<li class="list-group-item w-25">
-					<span class="fw-bold text-wrap">IP Address</span>
-					<p>--</p>
-				</li>
-				<li class="list-group-item w-25">
-					<span class="fw-bold text-wrap">Region</span>
-					<p>--</p>
-				</li>
-				<li class="list-group-item w-25">
-					<span class="fw-bold text-wrap">Latitude</span>
-					<p>--</p>
-				</li>
-				<li class="list-group-item w-25">
-					<span class="fw-bold text-wrap">Longitude</span>
-					<p>--</p>
-				</li>
-				<li class="list-group-item w-25">
-					<span class="fw-bold">ISP</span>
-					<p>--</p>
-				</li>
-			</ul> -->
-
 			<div class="container">
 				<div class="row">
 					<div class="col-lg border p-2">
@@ -221,6 +196,15 @@
 					<div class="col-lg border p-2">
 						<span class="fw-bold text-wrap">ISP</span>
 						<p class="replace">--</p>
+					</div>
+				</div>
+
+				<div class="text-center">
+					<div
+						class="spinner-border text-dark mt-2 d-none loading"
+						role="status"
+					>
+						<span class="visually-hidden"></span>
 					</div>
 				</div>
 			</div>
@@ -249,21 +233,11 @@
 		></div>
 		<div class="mycoords"></div>
 
-		<!-- <footer>
-				<div class="attribution">
-					Challenge by
-					<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-						>Frontend Mentor</a
-					>. Coded by
-					<a href="https://github.com/galieotrover">Valay Maskey</a>.
-				</div>
-			</footer> -->
 		<script src="script.js"></script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
 			crossorigin="anonymous"
 		></script>
-		<!-- </div> -->
 	</body>
 </html>
