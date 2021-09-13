@@ -3,8 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- displays site properly based on user's device -->
-
 		<link
 			rel="icon"
 			type="image/png"
@@ -22,34 +20,250 @@
 			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 			crossorigin=""
 		></script>
-		<link rel="stylesheet" href="style.css" />
-		<title>IP LookUp | Valay Maskey</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+		/>
 
-		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-		<style>
-			.attribution {
-				font-size: 11px;
-				text-align: center;
-			}
-			.attribution a {
-				color: hsl(228, 45%, 44%);
-			}
-		</style>
+		<!-- <link rel="stylesheet" href="style.css" /> -->
+		<title>IP LookUp | Valay Maskey</title>
 	</head>
 	<body>
-		IP Address Tracker Search for any IP address or domain IP Address Location
-		Timezone UTC
-		<!-- add offset value dynamically using the API -->
-		ISP IP LookUp
+		<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+			<div class="container">
+				<a href="#" class="navbar-brand">
+					<i class="bi bi-search" style="font-size: 0.8em"></i> IP LookUp
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbar"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end" id="navbar">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<span
+								style="color: white; cursor: pointer"
+								data-bs-toggle="modal"
+								data-bs-target="#about"
+								class="nav-link"
+							>
+								About
+							</span>
+							<!-- </li> -->
+							<div class="modal fade" tabindex="-1" id="about">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">About</h5>
+											<button
+												type="button"
+												class="btn-close"
+												data-bs-dismiss="modal"
+											></button>
+										</div>
+										<div class="modal-body">
+											<span class="fw-bold"
+												>Q. What is this website about?</span
+											>
+											<p>
+												A. This website lets you lookup details about your IP
+												address.
+											</p>
+											<span class="fw-bold"
+												>Q. What technologies are being used?</span
+											>
+											<p>
+												A. This website is made using
+												<a
+													href="https://getbootstrap.com"
+													target="_blank"
+													rel="noreferrer"
+													>Bootstrap</a
+												>. The map is generated using the JavaScript library,
+												<a
+													href="https://leafletjs.com/"
+													target="_blank"
+													rel="noreferrer"
+													>Leaflet</a
+												>
+												and
+												<a
+													href="https://ipify.org"
+													target="_blank"
+													rel="noreferrer"
+													>Ipify's</a
+												>
+												API is used to generate the IP details.
+											</p>
+											<span class="fw-bold"
+												>Q. Why doesn't the map show my exact location?</span
+											>
+											<p>
+												A. Since the geolocation of an IP address is based on
+												the business address of the ISP, the location shown will
+												always be different from your exact location.
+												<a
+													href="https://www.iplocation.net/geolocation-accuracy"
+													target="_blank"
+													rel="noreferrer"
+													>More info here</a
+												>
+											</p>
+											<span class="fw-bold"
+												>Q. Why doesn't the 'Lookup my IP' button do
+												anything?</span
+											>
+											<p>A. You might have to disable your adblocker.</p>
+											<span class="fw-bold">Q. Who made this?</span>
+											<p>
+												A.
+												<a
+													href="https://github.com/galieotrover"
+													target="_blank"
+													rel="noreferrer"
+													>Valay Maskey</a
+												>
+											</p>
+										</div>
+										<div class="modal-footer">
+											<button
+												type="button"
+												class="btn btn-secondary"
+												data-bs-dismiss="modal"
+											>
+												Close
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a
+								href="https://github.com/galieotrover/ip-lookup"
+								target="_blank"
+								rel="noreferrer"
+								style="color: white"
+								class="nav-link"
+							>
+								Github
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container mt-5">
+			<div class="main text-center m-4">
+				<button class="btn btn-secondary lookup">Lookup my IP</button>
+			</div>
 
-		<div id="mapid"></div>
-		<div class="mycoords"></div>
-		<div class="attribution">
-			Challenge by
-			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-				>Frontend Mentor</a
-			>. Coded by <a href="https://github.com/galieotrover">Valay Maskey</a>.
+			<!-- list-group list-group-horizontal-lg -->
+			<!-- <ul
+				class="container-lg rounded-5 justify-content-center text-center mb-4"
+			>
+				<li class="list-group-item w-25">
+					<span class="fw-bold text-wrap">IP Address</span>
+					<p>--</p>
+				</li>
+				<li class="list-group-item w-25">
+					<span class="fw-bold text-wrap">Region</span>
+					<p>--</p>
+				</li>
+				<li class="list-group-item w-25">
+					<span class="fw-bold text-wrap">Latitude</span>
+					<p>--</p>
+				</li>
+				<li class="list-group-item w-25">
+					<span class="fw-bold text-wrap">Longitude</span>
+					<p>--</p>
+				</li>
+				<li class="list-group-item w-25">
+					<span class="fw-bold">ISP</span>
+					<p>--</p>
+				</li>
+			</ul> -->
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg border p-2">
+						<span class="fw-bold">IP Address</span>
+						<p class="replace">--</p>
+					</div>
+					<div class="col-lg border p-2">
+						<span class="fw-bold text-wrap">Region</span>
+						<p class="replace">--</p>
+					</div>
+					<div class="col-lg border p-2">
+						<span class="fw-bold text-wrap">Latitude</span>
+						<p class="replace">--</p>
+					</div>
+					<div class="col-lg border p-2">
+						<span class="fw-bold text-wrap">Longitude</span>
+						<p class="replace">--</p>
+					</div>
+					<div class="col-lg border p-2">
+						<span class="fw-bold text-wrap">ISP</span>
+						<p class="replace">--</p>
+					</div>
+				</div>
+			</div>
+
+			<p class="instruct mt-4">
+				<i class="bi bi-info-circle"></i>
+				Most often, the "geolocation" of an IP address is based on the business
+				address of the ISP to which that IP address has been assigned. Thus, the
+				location reported for your IP address will
+				<span class="fw-bold">always</span>
+				be different from your own physical location.
+				<a
+					href="https://www.iplocation.net/geolocation-accuracy"
+					target="_blank"
+					rel="noreferrer"
+					>More info here</a
+				>
+			</p>
 		</div>
+
+		<div class="main-intro"></div>
+		<div
+			id="mapid"
+			style="height: 450px"
+			class="d-none border border-2 border-secondary rounded-3 m-4"
+		></div>
+		<div class="mycoords"></div>
+
+		<!-- <footer>
+				<div class="attribution">
+					Challenge by
+					<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+						>Frontend Mentor</a
+					>. Coded by
+					<a href="https://github.com/galieotrover">Valay Maskey</a>.
+				</div>
+			</footer> -->
 		<script src="script.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+			crossorigin="anonymous"
+		></script>
+		<!-- </div> -->
 	</body>
 </html>
