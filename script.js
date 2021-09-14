@@ -5,6 +5,7 @@ let replaceThese = Array.prototype.slice.call(
 );
 let instruct = document.querySelector('.instruct');
 let loading = document.querySelector('.loading');
+let errorMsg = document.querySelector('.error');
 
 btn.addEventListener('click', getData);
 
@@ -20,23 +21,29 @@ function getData() {
 	};
 
 	const getGeoLoc = async function () {
-		const ip = await getIp();
-		const response = await fetch(
-			`https://geo.ipify.org/api/v1?apiKey=at_eRmLCyubP4MeszApnDYC2JUl4oTFK&ipAddress=${ip['ip']}`
-		);
-		const data = await response.json();
-		const display = [];
-		display.push(
-			data.ip,
-			data.location.region,
-			data.location.lat,
-			data.location.lng,
-			data.isp
-		);
+		try {
+			const ip = await getIp();
+			const response = await fetch(
+				`https://geo.ipify.org/api/v1?apiKey=at_eRmLCyubP4MeszApnDYC2JUl4oTFK&ipAddress=${ip['ip']}`
+			);
+			const data = await response.json();
+			const display = [];
+			display.push(
+				data.ip,
+				data.location.region,
+				data.location.lat,
+				data.location.lng,
+				data.isp
+			);
 
-		replaceThese.forEach((item, index) => (item.innerText = display[index]));
+			replaceThese.forEach((item, index) => (item.innerText = display[index]));
 
-		return data;
+			return data;
+		} catch (err) {
+			loading.classList.add('d-none');
+			map.classList.add('d-none');
+			errorMsg.innerText = err.message;
+		}
 	};
 
 	map.classList.remove('d-none');
@@ -67,7 +74,7 @@ function getData() {
 			{
 				attribution:
 					'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-				maxZoom: 18,
+				maxZoom: 12,
 				id: 'mapbox/outdoors-v11',
 				tileSize: 512,
 				zoomOffset: -1,
